@@ -198,9 +198,12 @@ function listPostsToHomePage (){
             .then((res) => res.json())
             .then(function (userJson) {
                 const user = userJson[0];
+                let postRow = document.createElement("div");
+                postRow.classList = "row justify-content-center";
+                postsSection.appendChild(postRow);
                 let postCard = document.createElement("div");
-                postCard.classList = "card mb-5";
-                postCard.style = "width: 32rem;";
+                postCard.classList = "col-12 col-lg-4 card mb-5";
+                postCard.style = "";//"width: 32rem;";
                 postCard.id = `post_${post.id}_card`;
                 postCard.innerHTML = `
                 <div class="card-body d-flex">
@@ -227,14 +230,64 @@ function listPostsToHomePage (){
                         <button onclick="addComment(${post.id})"id="comment_post_button" class="btn text-primary" type="button">Post</button>
                     </div>
                 </div>`
-                postsSection.appendChild(postCard);
+                postRow.appendChild(postCard);
                 initPostInfomation (post.id);
             });
         }
     });
 }
-
-listPostsToHomePage();
+function listMyPosts (){
+    let postsSection = document.getElementById("posts");
+    fetch(`https://616c999637f997001745d6ce.mockapi.io/api/v1/post?user=${isLoggedIn()}`)
+    .then((res) => res.json())
+    .then(function (json) {
+        json.sort(function(x, y){
+            return y.createdAt - x.createdAt;
+        })
+        for (let i = 0; i < json.length; i++) {
+            const post = json[i];
+            fetch(`https://616c999637f997001745d6ce.mockapi.io/api/v1/user?id=${post.user}`)
+            .then((res) => res.json())
+            .then(function (userJson) {
+                const user = userJson[0];
+                let postRow = document.createElement("div");
+                postRow.classList = "row justify-content-center";
+                postsSection.appendChild(postRow);
+                let postCard = document.createElement("div");
+                postCard.classList = "col-12 col-lg-4 card mb-5";
+                postCard.style = "";//"width: 32rem;";
+                postCard.id = `post_${post.id}_card`;
+                postCard.innerHTML = `
+                <div class="card-body d-flex">
+                    <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg" alt="" class="rounded-circle" width="10%">
+                    <div class="d-grid align-self-center m-0">
+                        <h6 id="post_creator_name" class="m-0">${user.username}</h6>
+                        ${ (post.location != "") ? "<small><i class=\"fa fa-map-marker-alt me-1\"></i><span id=\"post_location_name\" class=\"text-primary\">Tuwaiq Bootcamp</span></small>" : "" }
+                    </div>
+                </div>
+                <img id="post_image" src="${post.post}" class=" border-top border-bottom" alt="...">
+                <div class="card-body pb-0 pt-1 d-flex align-items-center">
+                    <span onclick="likePost(${post.id})"id="post_like_icon_${post.id}" style="font-size: 24px;">
+                        <i class="far fa-heart"></i>
+                    </span>
+                    <span id="post_likes_count_${post.id}" class="ps-1">0</span>
+                </div>
+                <div class="card-body pt-0">
+                    ${ (post.caption != "") ? '<span id="post_body">' + user.username + '   <small class="card-text pb-2">' + post.caption + '</small></span>' : "" }
+                    <div class="pb-3"></div>
+                    <small onclick="showComments(${post.id})" id="post_comments_input_${post.id}" class="text-secondary" role="button" data-bs-toggle="modal" data-bs-target="#commentsModal">0 Comments</small>
+                    <hr class="m-0 p-0 mt-2">
+                    <div class="input-group m-0 p-0">
+                        <input id="comment_input_${post.id}" type="text" class="form-control border-0" placeholder="Add a comment..." >
+                        <button onclick="addComment(${post.id})"id="comment_post_button" class="btn text-primary" type="button">Post</button>
+                    </div>
+                </div>`
+                postRow.appendChild(postCard);
+                initPostInfomation (post.id);
+            });
+        }
+    });
+}
 
 function initPostInfomation (id){
     // Likes
