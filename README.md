@@ -1,10 +1,9 @@
 # TuwaiqGram
-### Unit 1 Project
+## Unit 1 Project
 
-A small copy of instagram you can ( post, like, comment, register, login, view your own posts )<br>
-Live On : https://therealbasel.github.io/TuwaiqGram/
+A small copy of instagram calles "TuwaiqGram"<br>
 
-### Functionalities in website
+## Functionalities in website
 * Create new Account
 * Login
 * Logout
@@ -14,22 +13,22 @@ Live On : https://therealbasel.github.io/TuwaiqGram/
 * Remove like from posts
 * View comments on posts
 
-### Tools used
+## Tools used
 * Bootstrap
 * Figma
 * Trello
 * Custom api from mockapi.io
 * Github Pages
 
-### Pages in website
+## Pages in website
 * index ( list all posts )
 * my posts ( list your posts )
 
 
-### Problems
+## Problems
 * mockapi.io has a limit requests in second so if there a lot of posts and comments the client well face an issues
 
-### Links
+## Links
 * Live Preview : https://therealbasel.github.io/TuwaiqGram/i
 * mockapi : https://mockapi.io
 * Figma : https://www.figma.com/proto/b2kjyEiqcJ7AmvvDftzzBL/Untitled?node-id=2%3A9
