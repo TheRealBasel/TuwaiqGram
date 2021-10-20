@@ -1,7 +1,7 @@
 # TuwaiqGram
 ## Unit 1 Project
 
-A small copy of instagram calles "TuwaiqGram"<br>
+A small copy of instagram called "TuwaiqGram"<br>
 
 ## Functionalities in website
 * Create new Account
@@ -29,7 +29,7 @@ A small copy of instagram calles "TuwaiqGram"<br>
 * mockapi.io has a limit requests in second so if there a lot of posts and comments the client well face an issues
 
 ## Links
-* Live Preview : https://therealbasel.github.io/TuwaiqGram/i
+* Live Preview : https://therealbasel.github.io/TuwaiqGram/
 * mockapi : https://mockapi.io
 * Figma : https://www.figma.com/proto/b2kjyEiqcJ7AmvvDftzzBL/Untitled?node-id=2%3A9
 * Trello : https://trello.com/b/2durkMDY/tuwaiqgram
