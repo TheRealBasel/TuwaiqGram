@@ -31,5 +31,5 @@ A small copy of instagram called "TuwaiqGram"<br>
 ## Links
 * Live Preview : https://therealbasel.github.io/TuwaiqGram/
 * mockapi : https://mockapi.io
-* Figma : https://www.figma.com/proto/b2kjyEiqcJ7AmvvDftzzBL/Untitled?node-id=2%3A9
+* Figma : https://www.figma.com/file/b2kjyEiqcJ7AmvvDftzzBL/Untitled?node-id=0%3A1
 * Trello : https://trello.com/b/2durkMDY/tuwaiqgram
